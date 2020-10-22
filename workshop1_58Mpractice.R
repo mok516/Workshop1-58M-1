@@ -26,3 +26,25 @@ chaff2 %>%
 #females  20.5    20
 #males    22.3    20
 
+#create a plot 
+library(ggplot2)
+chaffplot <- ggplot(chaff2, aes(x=sex, y=mass)) + 
+  geom_boxplot(outlier.colour = "red")
+chaffplot + theme_classic()
+
+# figure saving settings
+units <- "in"  
+fig_w <- 3.5
+fig_h <- fig_w
+dpi <- 300
+device <- "tiff"
+
+#save plot
+ggsave("..Workshop1-58M",
+       plot = chaffplot,
+       device = device,
+       width = fig_w,
+       height = fig_h,
+       units = units,
+       dpi = dpi)
+
